@@ -7,6 +7,7 @@ public class Stock
 {
 	private String name;
 	private int price;
+	private boolean down;
 	public String getName() {
 		return name;
 	}
@@ -19,6 +20,11 @@ public class Stock
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	
+	public boolean getDown() {
+		return down;
+	}
+	public void setDown(boolean down) {
+		this.down = down;
+	}
 	
 }
