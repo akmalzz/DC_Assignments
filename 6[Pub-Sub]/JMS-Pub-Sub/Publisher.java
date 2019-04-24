@@ -11,7 +11,8 @@ import javax.jms.Topic;
 import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
-public class Publisher {
+public class Publisher 
+{
 
 	private String clientId;
 	private Connection connection;
@@ -38,11 +39,13 @@ public class Publisher {
 		messageProducer = session.createProducer(topic);
 	}
 
-	public void closeConnection() throws JMSException {
+	public void closeConnection() throws JMSException 
+	{
 		connection.close();
 	}
 
-	public void sendName(String firstName, String lastName) throws JMSException {
+	public void sendName(String firstName, String lastName) throws JMSException 
+	{
 		String text = firstName + " " + lastName;
 
 		// create a JMS TextMessage
@@ -51,10 +54,12 @@ public class Publisher {
 		// send the message to the topic destination
 		messageProducer.send(textMessage);
 	}
-	public static void main(String[] args) throws JMSException {
+	public static void main(String[] args) throws JMSException 
+	{
 		Publisher publisher=new Publisher();
 		publisher.create("client1", "topic1");
 		publisher.sendName("Vishal Test Message", "J");
 		publisher.closeConnection();
 	}
 }
+

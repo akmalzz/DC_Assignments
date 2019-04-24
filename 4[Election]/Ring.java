@@ -1,8 +1,9 @@
 import java.util.Scanner;
 
-public class Ring {
-
-	public static void main(String[] args) {
+public class Ring 
+{
+	public static void main(String[] args) 
+	{
 
 		// TODO Auto-generated method stub
 
@@ -20,7 +21,8 @@ public class Ring {
 		int num = in.nextInt();
 
 // getting input from users
-		for (i = 0; i < num; i++) {
+		for (i = 0; i < num; i++) 
+		{
 			proc[i].index = i;
 			System.out.println("Enter the id of process : ");
 			proc[i].id = in.nextInt();
@@ -30,9 +32,12 @@ public class Ring {
 
 
 // sorting the processes from on the basis of id
-		for (i = 0; i < num - 1; i++) {
-			for (j = 0; j < num - 1; j++) {
-				if (proc[j].id > proc[j + 1].id) {
+		for (i = 0; i < num - 1; i++) 
+		{
+			for (j = 0; j < num - 1; j++) 
+			{
+				if (proc[j].id > proc[j + 1].id) 
+				{
 					temp = proc[j].id;
 					proc[j].id = proc[j + 1].id;
 					proc[j + 1].id = temp;
@@ -41,7 +46,8 @@ public class Ring {
 		}
 
 
-		for (i = 0; i < num; i++) {
+		for (i = 0; i < num; i++) 
+		{
 			System.out.print("  [" + i + "]" + " " + proc[i].id);
 		}
 
@@ -59,15 +65,18 @@ public class Ring {
 
 		System.out.println("\n process " + proc[num - 1].id + "select as co-ordinator");
 
-		while (true) {
+		while (true) 
+		{
 			System.out.println("\n 1.election 2.quit ");
 			ch = in.nextInt();
 
-			for (i = 0; i < num; i++) {
+			for (i = 0; i < num; i++) 
+			{
 				proc[i].f = 0;
 			}
 
-			switch (ch) {
+			switch (ch) 
+			{
 			case 1:
 				System.out.println("\n Enter the Process number who initialsied election : ");
 				init = in.nextInt();
@@ -76,8 +85,10 @@ public class Ring {
 
 				i = 0;
 
-				while (temp2 != temp1) {
-					if ("active".equals(proc[temp1].state) && proc[temp1].f == 0) {
+				while (temp2 != temp1) 
+				{
+					if ("active".equals(proc[temp1].state) && proc[temp1].f == 0) 
+					{
 
 						System.out.println("\nProcess " + proc[init].id + " send message to " + proc[temp1].id);
 						proc[temp1].f = 1;
@@ -85,9 +96,12 @@ public class Ring {
 						arr[i] = proc[temp1].id;
 						i++;
 					}
-					if (temp1 == num) {
+					if (temp1 == num) 
+					{
 						temp1 = 0;
-					} else {
+					} 
+					else 
+					{
 						temp1++;
 					}
 				}
@@ -99,8 +113,10 @@ public class Ring {
 
 
 // finding maximum for co-ordinator selection
-				for (j = 0; j < i; j++) {
-					if (max < arr[j]) {
+				for (j = 0; j < i; j++) 
+				{
+					if (max < arr[j]) 
+					{
 						max = arr[j];
 					}
 				}
@@ -109,9 +125,11 @@ public class Ring {
 				System.out.println("\n process " + max + "select as co-ordinator");
 
 
-				for (i = 0; i < num; i++) {
+				for (i = 0; i < num; i++) 
+				{
 
-					if (proc[i].id == max) {
+					if (proc[i].id == max) 
+					{
 						proc[i].state = "inactive";
 					}
 				}
@@ -130,7 +148,8 @@ public class Ring {
 
 }
 
-class Rr {
+class Rr 
+{
 
 	public int index;   // to store the index of process
 	public int id;      // to store id/name of process
